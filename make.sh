@@ -2,6 +2,8 @@
 
 cd "$(dirname "${0}")"
 
+mkdir -p build out
+
 kernel_config="${1}"
 
 die() {
@@ -21,7 +23,7 @@ cp "../${kernel_config}" .config
 
 pushd ../linux > /dev/null
 
-make O=../build ${@} || die "Invocation failed"
+make O=../build INSTALL_MOD_PATH="../out/" INSTALL_MOD_STRIP=1 ${@} || die "Invocation failed"
 
 popd > /dev/null
 
