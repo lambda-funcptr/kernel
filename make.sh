@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 cd "$(dirname "${0}")"
 
@@ -23,7 +23,7 @@ cp "../${kernel_config}" .config
 
 pushd ../linux > /dev/null
 
-make O=../build INSTALL_MOD_PATH="../out/" INSTALL_MOD_STRIP=1 ${@} || die "Invocation failed"
+make -j $(nproc) O=../build INSTALL_MOD_PATH="../out/" INSTALL_MOD_STRIP=1 ${@} || die "Invocation failed"
 
 popd > /dev/null
 
