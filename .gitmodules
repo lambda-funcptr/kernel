@@ -2,4 +2,4 @@
 	shallow = true
 	path = linux
 	url = https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
-	branch = origin/linux-rolling-stable
+	branch = linux-rolling-stable
